@@ -360,14 +360,10 @@ for (const person of people) {
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
 
-  const rowData = [
-    person.name,
-    person.sex || person.gender,
-    person.born,
-    person.died,
-    age,
-    century,
-  ];
+  const rawSex = person.sex || person.gender;
+  const gender = rawSex === 'm' ? 'Male' : 'Female';
+
+  const rowData = [person.name, gender, person.born, person.died, age, century];
 
   const row = document.createElement('tr');
 
